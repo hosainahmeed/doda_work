@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+    --primary-color: #F57C00 !important;
+    --secondary-color: #FFB701 !important;
+    --text-color: #ffffff !important;
+}
+
+.app {
+    @apply bg-[var(--primary-color)] text-[var(--text-color)];
+}
