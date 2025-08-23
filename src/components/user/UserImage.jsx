@@ -5,7 +5,7 @@ function UserImage({ user, className }) {
   return (
     <div className="flex items-center">
       <img
-        src={user?.image}
+        src={user?.avatar}
         alt={user?.name}
         className={cn("w-10 h-10 rounded-full", className)}
       />
