@@ -14,6 +14,10 @@ import VerifyOTP from "./pages/auth/VerifyOTP";
 import ResetPassword from "./pages/auth/ResetPassword";
 import Profile from "./pages/profile/Profile";
 import NotFound from "./pages/NotFound";
+import AwaitingRequests from "./pages/awaiting-requests/AwaitingRequests";
+import ServiceProvider from "./pages/service-provider/ServiceProvider";
+import CategoriesManagement from "./pages/categories-management/CategoriesManagement";
+import ApprovalSection from "./pages/approval-section/ApprovalSection";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +56,22 @@ export const router = createBrowserRouter([
       {
         path: "user-management",
         element: <UserManagement />,
+      },
+      {
+        path: "awaiting-requests",
+        element: <AwaitingRequests />,
+      },
+      {
+        path: "service-provider",
+        element: <ServiceProvider />,
+      },
+      {
+        path: "categories-management",
+        element: <CategoriesManagement />,
+      },
+      {
+        path: "approval-section",
+        element: <ApprovalSection />,
       },
       {
         path: "categories",

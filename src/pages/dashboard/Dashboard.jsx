@@ -39,7 +39,7 @@ const Dashboard = () => {
             <StatusCard item={item} key={index} />
           ))}
         </div>
-        <div className="bg-[var(--primary-color)] border border-gray-200/40 rounded-lg shadow mt-6">
+        <div className="bg-white border border-gray-200/40 rounded-lg shadow mt-6">
           <div className="w-full h-[420px] p-4 grid grid-cols-2 gap-4">
             <RequestsTrend />
             <CompletionRate />

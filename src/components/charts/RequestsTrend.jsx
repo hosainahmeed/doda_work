@@ -11,18 +11,18 @@ import {
 } from "recharts";
 import { Select } from "antd";
 const data = [
-  { month: "Jan", earnings: 500 },
-  { month: "Feb", earnings: 650 },
-  { month: "Mar", earnings: 800 },
-  { month: "Apr", earnings: 950 },
-  { month: "May", earnings: 1100 },
-  { month: "Jun", earnings: 1300 },
-  { month: "Jul", earnings: 1500 },
-  { month: "Aug", earnings: 1700 },
-  { month: "Sep", earnings: 1900 },
-  { month: "Oct", earnings: 2100 },
-  { month: "Nov", earnings: 2300 },
-  { month: "Dec", earnings: 2500 },
+  { month: "Jan", request: 500 },
+  { month: "Feb", request: 650 },
+  { month: "Mar", request: 800 },
+  { month: "Apr", request: 950 },
+  { month: "May", request: 1100 },
+  { month: "Jun", request: 1300 },
+  { month: "Jul", request: 1500 },
+  { month: "Aug", request: 1700 },
+  { month: "Sep", request: 1900 },
+  { month: "Oct", request: 2100 },
+  { month: "Nov", request: 2300 },
+  { month: "Dec", request: 2500 },
 ];
 
 function CompletionRate() {
@@ -63,7 +63,7 @@ function CompletionRate() {
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="earnings"
+            dataKey="request"
             stroke="var(--primary-color)"
             fill="var(--secondary-color)"
           />
