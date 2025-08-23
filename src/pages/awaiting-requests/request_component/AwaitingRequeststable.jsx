@@ -1,8 +1,6 @@
-// AwaitingRequeststable.jsx
-import React from "react";
+import React, { useCallback } from "react";
 import { Table } from "antd";
 import { awaitingRequestsColumns } from "./awaitingRequestsColumns";
-
 function AwaitingRequeststable() {
   const data = [
     {
@@ -22,21 +20,43 @@ function AwaitingRequeststable() {
       service_image_or_video:
         "https://belasea.sgp1.digitaloceanspaces.com/media/products/CeraVe-Daily-Moisturising-Lotion-For-Normal-To-Dry-Skin-355ml-USA.png",
     },
+    {
+      request_id: "#121212",
+      key: "2",
+      name: "Jane Smith",
+      category: "Repair",
+      email: "demo@example.com",
+      phone: "987-654-3210",
+      date: "2022-02-05",
+      time: "2:00 PM",
+      priority: "Low",
+      status: "Rejected",
+      avatar: "https://avatar.iran.liara.run/public/20",
+      action: "View",
+      video: false,
+      service_image_or_video:
+        "https://belasea.sgp1.digitaloceanspaces.com/media/products/CeraVe-Daily-Moisturising-Lotion-For-Normal-To-Dry-Skin-355ml-USA.png",
+    },
   ];
 
-  const handleView = (record) => {
-    console.log("View record:", record.key);
-  };
+  const handleView = useCallback((record) => {
+    console.log("details", record);
+  }, []);
 
   return (
-    <Table
-      columns={awaitingRequestsColumns(handleView)}
-      dataSource={data}
-      pagination={{ pageSize: 5, position: ["bottomCenter"] }}
-      scroll={{ x: "max-content" }}
-      size="large"
-      bordered
-    />
+    <div>
+      <div>
+        
+      </div>
+      <Table
+        columns={awaitingRequestsColumns(handleView)}
+        dataSource={data}
+        pagination={{ pageSize: 5, position: ["bottomCenter"] }}
+        scroll={{ x: "max-content" }}
+        size="large"
+        bordered
+      />
+    </div>
   );
 }
 
