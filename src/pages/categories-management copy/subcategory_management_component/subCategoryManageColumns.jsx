@@ -4,19 +4,14 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import UserImage from "../../../components/user/UserImage";
 import { GrLinkNext } from "react-icons/gr";
 
-export const categoryManageColumns = (onEdit, onDelete, onNavigate) => [
+export const subCategoryManageColumns = (onEdit, onDelete) => [
   {
-    title: "Category",
+    title: "Sub Category",
     dataIndex: "name",
     key: "name",
     render: (text, record) => (
       <UserImage user={{ name: text, avatar: record.avatar }} />
     ),
-  },
-  {
-    title: "Sub Category",
-    dataIndex: "sub_category",
-    key: "sub_category",
   },
   {
     title: "Action",
@@ -26,7 +21,6 @@ export const categoryManageColumns = (onEdit, onDelete, onNavigate) => [
       <Space>
         <Button onClick={() => onEdit(record)} shape="circle" icon={<FaEdit />} />
         <Button onClick={() => onDelete(record)} shape="circle" icon={<FaTrash />} />
-        <Button onClick={() => onNavigate(record._id)} shape="circle" icon={<GrLinkNext />} />
       </Space>
     ),
   },

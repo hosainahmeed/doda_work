@@ -12,6 +12,7 @@ import TermsAndConditions from "../pages/terms/TermsAndConditions.jsx";
 import ContactUs from "../pages/contact/ContactUs.jsx";
 import NotFound from "../pages/NotFound.jsx";
 import Layout from "../components/Layout/Layout.jsx";
+import SubcategoryManagement from "../pages/categories-management copy/SubcategoryManagement.jsx";
 
 export const DashboardRoutes = {
     path: "/",
@@ -45,6 +46,10 @@ export const DashboardRoutes = {
         {
             path: "categories-management",
             element: <CategoriesManagement />,
+        },
+        {
+            path: "categories-management/sub-category/:id",
+            element: <SubcategoryManagement />,
         },
         {
             path: "approval-section",

@@ -1,19 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input, Modal, Button, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-function CategoryForm({ addCategoryModalVisible, setAddCategoryModalVisible, title, onFinish }) {
+
+function CategoryForm({ open, hide, title, onFinish, record }) {
+    const [form] = Form.useForm();
+    const [fileList, setFileList] = useState([]);
+
+    useEffect(() => {
+        if (record) {
+            form.setFieldsValue(record);
+            if (record.avatar) {
+                setFileList([{
+                    uid: '-1',
+                    name: record.name,
+                    status: 'done',
+                    url: record.avatar,
+                }]);
+            }
+        } else {
+            setFileList([]);
+        }
+    }, [record, form]);
+
+    const handleUploadChange = ({ fileList }) => {
+        setFileList(fileList);
+    };
+
     return (
         <Modal
             title={title}
-            open={addCategoryModalVisible}
-            onOk={() => setAddCategoryModalVisible(false)}
-            onCancel={() => setAddCategoryModalVisible(false)}
+            open={open}
+            onOk={() => hide()}
+            onCancel={() => hide()}
             footer={null}
         >
             <Form
                 layout="vertical"
                 onFinish={onFinish}
                 requiredMark={false}
+                form={form}
             >
                 <Form.Item name="avatar">
                     <Upload
@@ -21,13 +46,11 @@ function CategoryForm({ addCategoryModalVisible, setAddCategoryModalVisible, tit
                         listType="picture"
                         maxCount={1}
                         accept="image/*"
-                        onChange={(info) => {
-                            if (info.file.status === "done") {
-                                console.log("Upload completed");
-                            }
-                        }}
+                        fileList={fileList}
+                        onChange={handleUploadChange}
+                        beforeUpload={() => false}
                     >
-                        <Button icon={<UploadOutlined />} >Upload</Button>
+                        <Button icon={<UploadOutlined />}>Upload</Button>
                     </Upload>
                 </Form.Item>
                 <Form.Item
@@ -38,7 +61,12 @@ function CategoryForm({ addCategoryModalVisible, setAddCategoryModalVisible, tit
                     <Input />
                 </Form.Item>
                 <Form.Item>
-                    <Button style={{ backgroundColor: "var(--primary-color)", color: "white" }} htmlType="submit">Submit</Button>
+                    <Button
+                        style={{ backgroundColor: "var(--primary-color)", color: "white" }}
+                        htmlType="submit"
+                    >
+                        Submit
+                    </Button>
                 </Form.Item>
             </Form>
         </Modal>

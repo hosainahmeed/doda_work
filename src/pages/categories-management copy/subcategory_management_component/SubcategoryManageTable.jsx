@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from "react";
 import { Table } from "antd";
-import { categoryManageColumns } from "./categoryManageColumns";
+import { subCategoryManageColumns } from "./subCategoryManageColumns";
 import CustomButton from "../../../components/common/CustomButton";
-import CategoryForm from "./CategoryForm";
-import { useNavigate } from "react-router-dom";
-function CategoryManageTable() {
-  const navigate = useNavigate()
+import CategoryForm from "../../categories-management/category_management_component/CategoryForm";
+import BackButton from "../../../components/common/BackButton";
+
+function SubcategoryManageTable() {
   const [addCategoryModalVisible, setAddCategoryModalVisible] = useState(false)
   const [updateCategoryModalVisible, setUpdateCategoryModalVisible] = useState(false)
   const [record, setRecord] = useState(null)
@@ -14,7 +14,7 @@ function CategoryManageTable() {
       _id: "1",
       request_id: "#121211",
       key: "1",
-      name: "category",
+      name: "sub category",
       sub_category: 3,
       status: "Pending",
       avatar: "https://avatar.iran.liara.run/public/13",
@@ -23,7 +23,7 @@ function CategoryManageTable() {
       _id: "2",
       request_id: "#121212",
       key: "2",
-      name: "category2",
+      name: "sub category 2",
       sub_category: 5,
       status: "Rejected",
       avatar: "https://avatar.iran.liara.run/public/20",
@@ -43,20 +43,16 @@ function CategoryManageTable() {
     console.log("Delete Category", record);
   }, []);
 
-  const handleNavigate = useCallback((id) => {
-    console.log("Navigate", id);
-    navigate(`/categories-management/sub-category/${id}`);
-  }, []);
-
   const handleSubmitCategory = useCallback((values) => {
     console.log("Submit Category", values);
   }, []);
 
   return (
     <div>
-      <CustomButton onClick={handleAddCategory} title="Add Category" icon="plus" />
+      <BackButton message="Back to Categories" className="mb-5 hover:text-[#F57C00]" />
+      <CustomButton onClick={handleAddCategory} title="Add Sub Category" icon="plus" />
       <Table
-        columns={categoryManageColumns(handleEditCategory, handleDeleteCategory, handleNavigate)}
+        columns={subCategoryManageColumns(handleEditCategory, handleDeleteCategory)}
         dataSource={data}
         pagination={{ pageSize: 5, position: ["bottomCenter"] }}
         scroll={{ x: "max-content" }}
@@ -67,17 +63,17 @@ function CategoryManageTable() {
         open={addCategoryModalVisible}
         hide={setAddCategoryModalVisible}
         onFinish={handleSubmitCategory}
-        title="Add Category"
+        title="Add Sub Category"
       />
       <CategoryForm
         record={record}
         open={updateCategoryModalVisible}
         hide={setUpdateCategoryModalVisible}
         onFinish={handleSubmitCategory}
-        title="Update Category"
+        title="Update Sub Category"
       />
     </div>
   );
 }
 
-export default CategoryManageTable;
+export default SubcategoryManageTable;
