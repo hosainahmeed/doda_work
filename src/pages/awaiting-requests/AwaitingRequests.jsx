@@ -6,7 +6,7 @@ function AwaitingRequests() {
   return (
     <PageLayout title={"Awaiting Requests"}>
       <PageContent>
-        <AwaitingRequeststable />
+        <AwaitingRequeststable pagination={true} />
       </PageContent>
     </PageLayout>
   );

@@ -7,6 +7,7 @@ import total_income from "../../assets/income.svg";
 import service_providers from "../../assets/service_provider.svg";
 import RequestsTrend from "../../components/charts/RequestsTrend";
 import CompletionRate from "../../components/charts/CompletionRate";
+import AwaitingRequeststable from "../awaiting-requests/request_component/AwaitingRequeststable";
 
 const Dashboard = () => {
   const data = [
@@ -45,6 +46,8 @@ const Dashboard = () => {
             <CompletionRate />
           </div>
         </div>
+        <h1 className="text-2xl font-bold text-black line-clamp-1">Awaiting Requests</h1>
+        <AwaitingRequeststable pagination={false} />
       </PageContent>
     </PageLayout>
   );

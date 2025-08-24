@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Table } from "antd";
 import { awaitingRequestsColumns } from "./awaitingRequestsColumns";
-function AwaitingRequeststable() {
+function AwaitingRequeststable({ pagination }) {
   const data = [
     {
       request_id: "#121211",
@@ -46,12 +46,12 @@ function AwaitingRequeststable() {
   return (
     <div>
       <div>
-        
+
       </div>
       <Table
         columns={awaitingRequestsColumns(handleView)}
         dataSource={data}
-        pagination={{ pageSize: 5, position: ["bottomCenter"] }}
+        pagination={pagination}
         scroll={{ x: "max-content" }}
         size="large"
         bordered
