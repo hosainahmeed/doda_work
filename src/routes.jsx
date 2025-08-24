@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import UserManagement from "./pages/user-management/UserManagement";
-import Categories from "./pages/categories/Categories";
 import FAQ from "./pages/faq/FAQ";
 import PrivacyPolicy from "./pages/privacy-policy/PrivacyPolicy";
 import TermsAndConditions from "./pages/terms/TermsAndConditions";
@@ -16,8 +15,8 @@ import Profile from "./pages/profile/Profile";
 import NotFound from "./pages/NotFound";
 import AwaitingRequests from "./pages/awaiting-requests/AwaitingRequests";
 import ServiceProvider from "./pages/service-provider/ServiceProvider";
-import CategoriesManagement from "./pages/categories-management/CategoriesManagement";
 import ApprovalSection from "./pages/approval-section/ApprovalSection";
+import CategoriesManagement from "./pages/categories-management/CategoriesManagement";
 
 export const router = createBrowserRouter([
   {
@@ -72,10 +71,6 @@ export const router = createBrowserRouter([
       {
         path: "approval-section",
         element: <ApprovalSection />,
-      },
-      {
-        path: "categories",
-        element: <Categories />,
       },
       {
         path: "faq",
