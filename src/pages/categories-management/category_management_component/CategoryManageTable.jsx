@@ -1,8 +1,10 @@
-import React, { useCallback } from "react";
-import { Table } from "antd";
+import React, { useCallback, useState } from "react";
+import { Form, Input, Modal, Table } from "antd";
 import { categoryManageColumns } from "./categoryManageColumns";
 import CustomButton from "../../../components/common/CustomButton";
+import CategoryForm from "./CategoryForm";
 function CategoryManageTable() {
+  const [addCategoryModalVisible, setAddCategoryModalVisible] = useState(false)
   const data = [
     {
       request_id: "#121211",
@@ -22,24 +24,35 @@ function CategoryManageTable() {
     },
   ];
 
-  const handleView = useCallback((record) => {
-    console.log("details", record);
+  const handleAddCategory = useCallback(() => {
+    setAddCategoryModalVisible(true)
   }, []);
 
-  const handleAddCategory = useCallback(() => {
-    console.log("Add Category");
+  const handleEditCategory = useCallback((record) => {
+    console.log("Edit Category", record);
   }, []);
+
+  const handleDeleteCategory = useCallback((record) => {
+    console.log("Delete Category", record);
+  }, []);
+
+
 
   return (
     <div>
       <CustomButton onClick={handleAddCategory} title="Add Category" icon="plus" />
       <Table
-        columns={categoryManageColumns(handleView)}
+        columns={categoryManageColumns(handleEditCategory, handleDeleteCategory)}
         dataSource={data}
         pagination={{ pageSize: 5, position: ["bottomCenter"] }}
         scroll={{ x: "max-content" }}
         size="large"
         bordered
+      />
+      <CategoryForm
+        addCategoryModalVisible={addCategoryModalVisible}
+        setAddCategoryModalVisible={setAddCategoryModalVisible}
+        title="Add Category"
       />
     </div>
   );

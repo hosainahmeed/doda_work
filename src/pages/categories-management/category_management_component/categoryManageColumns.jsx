@@ -3,7 +3,7 @@ import { Button, Space } from "antd";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import UserImage from "../../../components/user/UserImage";
 
-export const categoryManageColumns = (onView) => [
+export const categoryManageColumns = (onView, onEdit, onDelete) => [
   {
     title: "Category",
     dataIndex: "name",
@@ -23,8 +23,8 @@ export const categoryManageColumns = (onView) => [
     key: "action",
     render: (_, record) => (
       <Space>
-        <Button onClick={() => onView(record)} shape="circle" icon={<FaEdit />} />
-        <Button onClick={() => onView(record)} shape="circle" icon={<FaTrash />} /> {/* MdBlock */}
+        <Button onClick={() => onEdit(record)} shape="circle" icon={<FaEdit />} />
+        <Button onClick={() => onDelete(record)} shape="circle" icon={<FaTrash />} /> {/* MdBlock */}
       </Space>
     ),
   },
