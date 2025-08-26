@@ -1,7 +1,10 @@
-import React, { useCallback } from "react";
-import { Table } from "antd";
+import React, { useCallback, useState } from "react";
+import { Table, Modal } from "antd";
 import { awaitingRequestsColumns } from "./awaitingRequestsColumns";
+import AwaitingRequestsDetailsCard from "./AwaitingRequestsDetailsCard";
 function AwaitingRequeststable({ pagination }) {
+  const [selectedRequest, setSelectedRequest] = useState(null);
+  const [cancel, setCancel] = useState(false)
   const data = [
     {
       request_id: "#121211",
@@ -13,7 +16,7 @@ function AwaitingRequeststable({ pagination }) {
       date: "2022-01-01",
       time: "10:00 AM",
       priority: "High",
-      status: "Pending",
+      status: "Approved",
       avatar: "https://avatar.iran.liara.run/public/13",
       action: "View",
       video: false,
@@ -40,7 +43,15 @@ function AwaitingRequeststable({ pagination }) {
   ];
 
   const handleView = useCallback((record) => {
-    console.log("details", record);
+    setSelectedRequest(record);
+  }, []);
+
+  const handleCancel = useCallback((record) => {
+    setCancel(true)
+    setTimeout(() => {
+      setCancel(false)
+      alert(`${record.name} cancelled successfully`)
+    }, 2000);
   }, []);
 
   return (
@@ -56,6 +67,15 @@ function AwaitingRequeststable({ pagination }) {
         size="large"
         bordered
       />
+      <Modal
+        open={!!selectedRequest}
+        footer={null}
+        onCancel={() => setSelectedRequest(null)}
+        centered
+        width={500}
+      >
+        {selectedRequest && <AwaitingRequestsDetailsCard record={selectedRequest} handleCancel={handleCancel} loading={cancel} />}
+      </Modal>
     </div>
   );
 }
