@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import {
   Area,
   AreaChart,
@@ -74,4 +74,4 @@ function CompletionRate() {
   );
 }
 
-export default CompletionRate;
+export default memo(CompletionRate);
