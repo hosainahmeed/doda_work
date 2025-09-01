@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 function StatusCard({ item }) {
   return (
@@ -26,4 +26,4 @@ function StatusCard({ item }) {
   );
 }
 
-export default StatusCard;
+export default memo(StatusCard);

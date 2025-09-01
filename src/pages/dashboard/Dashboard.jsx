@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { PageLayout, PageContent } from "../../components/PageLayout";
 import StatusCard from "./components/StatusCard";
 import user from "../../assets/user.svg";
@@ -53,4 +53,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default memo(Dashboard);
