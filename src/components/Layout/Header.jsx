@@ -30,12 +30,7 @@ function Header({ user, toggleSidebar }) {
           </button>
         </div>
         <div className="ml-auto flex items-center px-4 space-x-4">
-          {/* Notifications */}
-          <div className="relative">
-            <Notifications />
-          </div>
-
-          {/* Profile Dropdown */}
+          <Notifications />
           <div className="relative" ref={profileRef}>
             <button
               onClick={toggleProfile}
@@ -52,9 +47,8 @@ function Header({ user, toggleSidebar }) {
                 {user.name}
               </span>
               <FiChevronDown
-                className={`h-4 w-4 text-gray-500 transition-transform ${
-                  isProfileOpen ? "transform rotate-180" : ""
-                }`}
+                className={`h-4 w-4 text-gray-500 transition-transform ${isProfileOpen ? "transform rotate-180" : ""
+                  }`}
               />
             </button>
 
