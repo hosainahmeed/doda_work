@@ -75,9 +75,7 @@ export const approvalSectionColumns = (onView) => [
     render: (_, record) => (
       <Space>
         <Button onClick={() => onView(record)} shape="circle" icon={<FaEye />} />
-        <Button onClick={() => {
-            
-        }} shape="circle" icon={<MdChat />} />
+        <Button shape="circle" icon={<MdChat />} />
       </Space>
     ),
   },
