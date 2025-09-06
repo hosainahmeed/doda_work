@@ -15,7 +15,7 @@ function CategoryManageTable() {
       request_id: "#121211",
       key: "1",
       name: "category",
-      sub_category: 3,
+      sub_category: 2,
       status: "Pending",
       avatar: "https://avatar.iran.liara.run/public/13",
     },
@@ -24,7 +24,7 @@ function CategoryManageTable() {
       request_id: "#121212",
       key: "2",
       name: "category2",
-      sub_category: 5,
+      sub_category: 2,
       status: "Rejected",
       avatar: "https://avatar.iran.liara.run/public/20",
     },
@@ -58,7 +58,7 @@ function CategoryManageTable() {
       <Table
         columns={categoryManageColumns(handleEditCategory, handleDeleteCategory, handleNavigate)}
         dataSource={data}
-        pagination={{ pageSize: 5, position: ["bottomCenter"] }}
+        pagination={false}
         scroll={{ x: "max-content" }}
         size="large"
         bordered

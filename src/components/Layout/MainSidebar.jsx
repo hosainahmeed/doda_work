@@ -1,75 +1,17 @@
 import React from "react";
 import {
-  FaQuestionCircle,
-  FaStopwatch,
   FaTimes,
-  FaUserCog,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import {
-  FiHome,
-  FiUsers,
-  FiList,
-  FiImage,
-  FiLock,
-  FiFileText,
-  FiPhone,
-} from "react-icons/fi";
+
 import main_logo from "../../assets/main_logo.svg";
 import cn from "../../lib/cn";
+import { menuItems } from "./sidebarRoutes";
 
 function MainSidebar({ toggleSidebar, isSidebarOpen }) {
   const location = useLocation();
-
-  const menuItems = [
-    { path: "/", name: "Dashboard", icon: <FiHome className="h-5 w-5" /> },
-    {
-      path: "/awaiting-requests",
-      name: "Awaiting Requests",
-      icon: <FaStopwatch className="h-5 w-5" />,
-    },
-    {
-      path: "/user-management",
-      name: "User Management",
-      icon: <FiUsers className="h-5 w-5" />,
-    },
-    {
-      path: "/service-provider",
-      name: "Service Provider",
-      icon: <FaUserCog className="h-5 w-5" />,
-    },
-    {
-      path: "/categories-management",
-      name: "Category Management",
-      icon: <FiList className="h-5 w-5" />,
-    },
-    {
-      path: "/approval-section",
-      name: "Approval section",
-      icon: <FiImage className="h-5 w-5" />,
-    },
-    {
-      path: "/faq",
-      name: "FAQ",
-      icon: <FaQuestionCircle className="h-5 w-5" />,
-    },
-    {
-      path: "/privacy-policy",
-      name: "Privacy Policy",
-      icon: <FiLock className="h-5 w-5" />,
-    },
-    {
-      path: "/terms",
-      name: "Terms & Conditions",
-      icon: <FiFileText className="h-5 w-5" />,
-    },
-    {
-      path: "/contact",
-      name: "Contact Us",
-      icon: <FiPhone className="h-5 w-5" />,
-    },
-  ];
+  
   const isActive = (path) =>
     location.pathname === path ? "bg-[var(--secondary-color)]" : "";
   return (

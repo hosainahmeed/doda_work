@@ -59,7 +59,7 @@ export const awaitingRequestsColumns = (onView) => [
       <div
         className={cn("w-fit px-3 rounded", {
           "!bg-yellow-500 !text-yellow-800": text === "Pending",
-          "!bg-blue-100 !text-blue-800": text === "completed",
+          "!bg-green-100 !text-green-800": text === "Approved",
           "!bg-red-100 !text-red-800": text === "Rejected",
         })}
       >

@@ -68,14 +68,6 @@ function Header({ user, toggleSidebar }) {
                   <FiUser className="mr-3 h-5 w-5 text-gray-400" />
                   <span>Your Profile</span>
                 </Link>
-                <Link
-                  to="/settings"
-                  className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  onClick={() => setIsProfileOpen(false)}
-                >
-                  <FiSettings className="mr-3 h-5 w-5 text-gray-400" />
-                  <span>Settings</span>
-                </Link>
                 <div className="border-t border-gray-100"></div>
                 <button
                   onClick={handleLogout}

@@ -10,6 +10,7 @@ const TermsAndConditions = () => {
       <PageContent>
         <JoditComponent setContent={setContent} content={content} />
         <Button
+          size="large"
           onClick={() => alert("Update Coming Soon")}
           className="max-w-48 app sidebar-button-black"
         >

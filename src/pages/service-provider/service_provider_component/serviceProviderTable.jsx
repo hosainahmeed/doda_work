@@ -1,8 +1,14 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Table } from "antd";
 import SearchInput from "../../../components/common/SearchInput";
 import { serviceProviderColumns } from "./serviceProviderColumns";
+import ServiceProviderDetails from "./ServiceProviderDetails";
 function ServiceProviderTable() {
+    const [open, setOpen] = useState(false)
+    const [record, setRecord] = useState(null)
+    const hide = useCallback((value) => {
+        setOpen(value)
+    }, [])
   const data = [
     {
       request_id: "#121211",
@@ -11,6 +17,13 @@ function ServiceProviderTable() {
       email: "7o4wP@example.com",
       phone: "123-456-7890",
       status: "Pending",
+      company_name: "John Doe",
+      company_address: "Dhaka, Banani",
+      category: "Plumbing",
+      sub_category: "Pipe Repair",
+      working_hours: "9 AM - 5 PM",
+      weekend: "Saturday",
+      contact_person: "John Doe",
       avatar: "https://avatar.iran.liara.run/public/13",
       website_link: "https://www.google.com",
     },
@@ -21,6 +34,13 @@ function ServiceProviderTable() {
       email: "demo@example.com",
       phone: "987-654-3210",
       status: "Rejected",
+      company_name: "John Doe",
+      company_address: "Dhaka, Banani",
+      category: "Plumbing",
+      sub_category: "Pipe Repair",
+      working_hours: "9 AM - 5 PM",
+      weekend: "Saturday",
+      contact_person: "John Doe",
       avatar: "https://avatar.iran.liara.run/public/20",
       website_link: "https://www.google.com",
     },
@@ -28,6 +48,8 @@ function ServiceProviderTable() {
 
   const handleView = useCallback((record) => {
     console.log("details", record);
+    setRecord(record)
+    setOpen(true)
   }, []);
 
   return (
@@ -36,11 +58,12 @@ function ServiceProviderTable() {
       <Table
         columns={serviceProviderColumns(handleView)}
         dataSource={data}
-        pagination={{ pageSize: 5, position: ["bottomCenter"] }}
+        pagination={false}
         scroll={{ x: "max-content" }}
         size="large"
         bordered
       />
+      <ServiceProviderDetails open={open} hide={hide} record={record} />
     </div>
   );
 }

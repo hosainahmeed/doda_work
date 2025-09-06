@@ -34,7 +34,7 @@ export const serviceProviderColumns = (onView) => [
     render: (_, record) => (
       <Space>
         <Button onClick={() => onView(record)} shape="circle" icon={<FaEye />} />
-        <Button onClick={() => onView(record)} shape="circle" icon={<FaRegCheckCircle />} /> {/* MdBlock */}
+        <Button onClick={() => alert("Block function called")} shape="circle" icon={<FaRegCheckCircle />} /> {/* MdBlock */}
       </Space>
     ),
   },

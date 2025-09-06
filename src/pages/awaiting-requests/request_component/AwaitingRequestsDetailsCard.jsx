@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Card, Divider, Button } from 'antd'
-import rejected from "./rejected.svg"
-import approved from "./approved.png"
+import rejected from "../../../assets/rejected.svg"
+import approved from "../../../assets/approved.png"
+import pending from "../../../assets/pending.png"
+import MatchProviderList from '../../../components/common/MatchProviderList'
 
 const AwaitingRequestsDetailsCard = ({ record, handleCancel, loading = false }) => {
-    const [match, setMatch] = useState([])
-    
+    const [open, setOpen] = useState(false)
+    const handleMatch = useCallback(() => {
+        setOpen(true)
+    }, [])
+
     return (
         <div>
             <Card>
@@ -15,6 +20,9 @@ const AwaitingRequestsDetailsCard = ({ record, handleCancel, loading = false }) 
                     </div>}
                     {record?.status === "Approved" && <div className='absolute w-20 h-20 bottom-24 right-4'>
                         <img src={approved} alt={record?.name} className="w-full -rotate-12 h-full object-contain rounded" />
+                    </div>}
+                    {record?.status === "Pending" && <div className='absolute w-20 h-20 bottom-24 right-4'>
+                        <img src={pending} alt={record?.name} className="w-full -rotate-12 h-full object-contain rounded" />
                     </div>}
                     {/* User Info */}
                     <div className="flex items-center gap-4 mb-4">
@@ -90,6 +98,7 @@ const AwaitingRequestsDetailsCard = ({ record, handleCancel, loading = false }) 
                     {/* Actions */}
                     <div className="flex gap-3">
                         <Button
+                            onClick={() => handleMatch()}
                             style={{ backgroundColor: "var(--primary-color)", color: "#fff" }}
                         >
                             Match Provider
@@ -104,6 +113,7 @@ const AwaitingRequestsDetailsCard = ({ record, handleCancel, loading = false }) 
                     </div>
                 </div>
             </Card>
+            <MatchProviderList open={open} hide={setOpen} />
         </div>
     )
 }

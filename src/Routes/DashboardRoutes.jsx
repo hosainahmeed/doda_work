@@ -1,18 +1,18 @@
 import React from "react";
-import Dashboard from "../pages/dashboard/Dashboard.jsx";
-import Profile from "../pages/profile/Profile.jsx";
-import UserManagement from "../pages/user-management/UserManagement.jsx";
-import AwaitingRequests from "../pages/awaiting-requests/AwaitingRequests.jsx";
-import ServiceProvider from "../pages/service-provider/ServiceProvider.jsx";
-import CategoriesManagement from "../pages/categories-management/CategoriesManagement.jsx";
-import ApprovalSection from "../pages/approval-section/ApprovalSection.jsx";
-import FAQ from "../pages/faq/FAQ.jsx";
-import PrivacyPolicy from "../pages/privacy-policy/PrivacyPolicy.jsx";
-import TermsAndConditions from "../pages/terms/TermsAndConditions.jsx";
-import ContactUs from "../pages/contact/ContactUs.jsx";
-import NotFound from "../pages/NotFound.jsx";
-import Layout from "../components/Layout/Layout.jsx";
-import SubcategoryManagement from "../pages/categories-management copy/SubcategoryManagement.jsx";
+import Dashboard from "../pages/dashboard/Dashboard";
+import Profile from "../pages/profile/Profile";
+import UserManagement from "../pages/user-management/UserManagement";
+import AwaitingRequests from "../pages/awaiting-requests/AwaitingRequests";
+import ServiceProvider from "../pages/service-provider/ServiceProvider";
+import CategoriesManagement from "../pages/categories-management/CategoriesManagement";
+import MatchedServices from "../pages/approval-section/MatchedServices";
+import FAQ from "../pages/faq/FAQ";
+import PrivacyPolicy from "../pages/privacy-policy/PrivacyPolicy";
+import TermsAndConditions from "../pages/terms/TermsAndConditions";
+import NotFound from "../pages/NotFound";
+import Layout from "../components/Layout/Layout";
+import SubcategoryManagement from "../pages/categories-management copy/SubcategoryManagement";
+import Test from "../components/common/Test";
 
 export const DashboardRoutes = {
     path: "/",
@@ -52,8 +52,8 @@ export const DashboardRoutes = {
             element: <SubcategoryManagement />,
         },
         {
-            path: "approval-section",
-            element: <ApprovalSection />,
+            path: "matched-services",
+            element: <MatchedServices />,
         },
         {
             path: "faq",
@@ -68,8 +68,8 @@ export const DashboardRoutes = {
             element: <TermsAndConditions />,
         },
         {
-            path: "contact",
-            element: <ContactUs />,
+            path: "test",
+            element: <Test />,
         },
         {
             path: "*",

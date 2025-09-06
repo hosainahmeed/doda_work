@@ -1,10 +1,14 @@
-import React, { useCallback, useState } from "react";
-import { Table, Modal } from "antd";
-import { approvalSectionColumns } from "./approvalSectionColumns";
-import ApprovalSectionDetailsCard from "./ApprovalSectionDetailsCard";
-function ApprovalSectionTable() {
+import React, { useCallback, useMemo, useState } from "react";
+import { Table, Modal, Tabs, ConfigProvider } from "antd";
+import { matchedServicesColumns } from "./matchedServicesColumns";
+import MatchedServicesDetailsCard from "./MatchedServicesDetailsCard";
+import { PlusOutlined } from "@ant-design/icons";
+
+function MatchedServicesTable() {
   const [selectedRequest, setSelectedRequest] = useState(null);
-  const [cancel, setCancel] = useState(false)
+  const [cancel, setCancel] = useState(false);
+  const [activeTab, setActiveTab] = useState("Approved");
+
   const data = [
     {
       request_id: "#121211",
@@ -47,22 +51,48 @@ function ApprovalSectionTable() {
   }, []);
 
   const handleCancel = useCallback((record) => {
-    setCancel(true)
+    setCancel(true);
     setTimeout(() => {
-      setCancel(false)
-      alert(`${record.name} cancelled successfully`)
+      setCancel(false);
+      alert(`${record.name} cancelled successfully`);
     }, 2000);
   }, []);
 
+  const filteredData = useMemo(() => {
+    return data.filter((item) => item.status === activeTab);
+  }, [activeTab]);
+
+  const items = [
+    {
+      key: "Approved",
+      label: "Approved",
+    },
+    {
+      key: "Rejected",
+      label: "Rejected",
+    },
+  ];
+
   return (
     <div>
-      <div>
-
-      </div>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: "#111",
+            colorBgContainer: "#ffa337",
+          },
+        }}
+      ><Tabs
+          type="card"
+          size="middle"
+          defaultActiveKey="Approved"
+          items={items}
+          onChange={(key) => setActiveTab(key)}
+        /></ConfigProvider>
       <Table
-        columns={approvalSectionColumns(handleView)}
-        dataSource={data}
-        pagination={true}
+        columns={matchedServicesColumns(handleView)}
+        dataSource={filteredData}
+        pagination={false}
         scroll={{ x: "max-content" }}
         size="large"
         bordered
@@ -74,10 +104,16 @@ function ApprovalSectionTable() {
         centered
         width={500}
       >
-        {selectedRequest && <ApprovalSectionDetailsCard record={selectedRequest} handleCancel={handleCancel} loading={cancel} />}
+        {selectedRequest && (
+          <MatchedServicesDetailsCard
+            record={selectedRequest}
+            handleCancel={handleCancel}
+            loading={cancel}
+          />
+        )}
       </Modal>
     </div>
   );
 }
 
-export default ApprovalSectionTable;
+export default MatchedServicesTable;

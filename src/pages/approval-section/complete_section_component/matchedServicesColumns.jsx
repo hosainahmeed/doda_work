@@ -4,8 +4,9 @@ import { FaEye } from "react-icons/fa";
 import cn from "../../../lib/cn";
 import UserImage from "../../../components/user/UserImage";
 import { MdChat } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-export const approvalSectionColumns = (onView) => [
+export const matchedServicesColumns = (onView) => [
   {
     title: "Request ID",
     dataIndex: "request_id",
@@ -60,7 +61,7 @@ export const approvalSectionColumns = (onView) => [
       <div
         className={cn("w-fit px-3 rounded", {
           "!bg-yellow-500 !text-yellow-800": text === "Pending",
-          "!bg-blue-100 !text-blue-800": text === "completed",
+          "!bg-green-400 !text-white": text === "Approved",
           "!bg-red-100 !text-red-800": text === "Rejected",
         })}
       >
@@ -75,7 +76,13 @@ export const approvalSectionColumns = (onView) => [
     render: (_, record) => (
       <Space>
         <Button onClick={() => onView(record)} shape="circle" icon={<FaEye />} />
-        <Button shape="circle" icon={<MdChat />} />
+        <Link
+          to={`https://mail.google.com/mail/?view=cm&fs=1&to=${record.email}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button shape="circle" icon={<MdChat />} />
+        </Link>
       </Space>
     ),
   },

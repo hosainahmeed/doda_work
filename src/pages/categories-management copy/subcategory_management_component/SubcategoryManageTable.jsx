@@ -15,7 +15,6 @@ function SubcategoryManageTable() {
       request_id: "#121211",
       key: "1",
       name: "sub category",
-      sub_category: 3,
       status: "Pending",
       avatar: "https://avatar.iran.liara.run/public/13",
     },
@@ -24,7 +23,6 @@ function SubcategoryManageTable() {
       request_id: "#121212",
       key: "2",
       name: "sub category 2",
-      sub_category: 5,
       status: "Rejected",
       avatar: "https://avatar.iran.liara.run/public/20",
     },
@@ -54,7 +52,7 @@ function SubcategoryManageTable() {
       <Table
         columns={subCategoryManageColumns(handleEditCategory, handleDeleteCategory)}
         dataSource={data}
-        pagination={{ pageSize: 5, position: ["bottomCenter"] }}
+        pagination={false}
         scroll={{ x: "max-content" }}
         size="large"
         bordered
