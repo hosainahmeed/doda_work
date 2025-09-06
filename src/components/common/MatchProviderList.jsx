@@ -1,5 +1,5 @@
-import { Button, Modal, Table } from 'antd'
 import React, { useState } from 'react'
+import { Button, Modal, Table } from 'antd'
 import UserImage from '../user/UserImage';
 
 const columns = [
@@ -12,7 +12,7 @@ const columns = [
   },
   {
     title: '',
-    dataIndex: 'address',
+  dataIndex: 'address',
   },
 ];
 
