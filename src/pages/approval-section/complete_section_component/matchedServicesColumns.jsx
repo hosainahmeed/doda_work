@@ -3,8 +3,6 @@ import { Button, Space } from "antd";
 import { FaEye } from "react-icons/fa";
 import cn from "../../../lib/cn";
 import UserImage from "../../../components/user/UserImage";
-import { MdChat } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 export const matchedServicesColumns = (onView) => [
   {
@@ -76,13 +74,6 @@ export const matchedServicesColumns = (onView) => [
     render: (_, record) => (
       <Space>
         <Button onClick={() => onView(record)} shape="circle" icon={<FaEye />} />
-        <Link
-          to={`https://mail.google.com/mail/?view=cm&fs=1&to=${record.email}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button shape="circle" icon={<MdChat />} />
-        </Link>
       </Space>
     ),
   },

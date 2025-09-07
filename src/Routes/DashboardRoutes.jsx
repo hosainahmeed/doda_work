@@ -13,6 +13,9 @@ import NotFound from "../pages/NotFound";
 import Layout from "../components/Layout/Layout";
 import SubcategoryManagement from "../pages/categories-management copy/SubcategoryManagement";
 import Test from "../components/common/Test";
+import ChatLayout from "../pages/chat/ChatLayout";
+import AdminPage from "../pages/admin/AdminPage";
+import SignUpUserRequest from "../pages/sign-up-user-request/SignUpUserRequest";
 
 export const DashboardRoutes = {
     path: "/",
@@ -44,6 +47,10 @@ export const DashboardRoutes = {
             element: <ServiceProvider />,
         },
         {
+            path: "sign-up-user-request",
+            element: <SignUpUserRequest />,
+        },
+        {
             path: "categories-management",
             element: <CategoriesManagement />,
         },
@@ -54,6 +61,10 @@ export const DashboardRoutes = {
         {
             path: "matched-services",
             element: <MatchedServices />,
+        },
+        {
+            path: "admin",
+            element: <AdminPage />,
         },
         {
             path: "faq",
@@ -70,6 +81,10 @@ export const DashboardRoutes = {
         {
             path: "test",
             element: <Test />,
+        },
+        {
+            path: "chat",
+            element: <ChatLayout />,
         },
         {
             path: "*",

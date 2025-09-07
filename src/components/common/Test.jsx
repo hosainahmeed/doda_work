@@ -1,8 +1,9 @@
 import React from 'react'
+import AdminPage from '../../pages/admin/AdminPage'
 
 function Test() {
   return (
-    <div>Test</div>
+    <AdminPage />
   )
 }
 

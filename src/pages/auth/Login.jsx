@@ -27,7 +27,7 @@ const Login = () => {
       console.log('Login attempt with:', formData);
       setIsLoading(false);
       // Redirect to dashboard on successful login
-      navigate('/dashboard');
+      navigate('/');
     }, 1500);
   };
 

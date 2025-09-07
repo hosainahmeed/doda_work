@@ -1,8 +1,9 @@
 import React from "react";
+import cn from "../lib/cn";
 
-export const PageLayout = ({ title, children }) => {
+export const PageLayout = ({ title, children, className }) => {
   return (
-    <div className="p-3 w-full">
+    <div className={cn("p-3 w-full", className)}>
       {title && (
         <h1 className="text-2xl font-bold text-gray-800 mb-6">{title}</h1>
       )}

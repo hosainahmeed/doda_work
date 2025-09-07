@@ -1,0 +1,131 @@
+[
+    {
+        "conversationId": "c12347",
+        "participants": [
+            {
+                "id": "u1",
+                "name": "Hosain",
+                "role": "user"
+            },
+            {
+                "id": "u2",
+                "name": "Client",
+                "role": "client"
+            }
+        ],
+        "messages": [
+            {
+                "messageId": "m1",
+                "senderId": "u2",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Hi Hosain, are you able to meet now?",
+                "timestamp": "2025-09-07T10:15:00Z"
+            },
+            {
+                "messageId": "m2",
+                "senderId": "u1",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Hi, our developers have weekends on Friday and Sunday. Could we schedule another time?",
+                "timestamp": "2025-09-07T10:17:00Z"
+            },
+            {
+                "messageId": "m3",
+                "senderId": "u1",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Quick update: Dashboard is 70% done, App UI design is 40% completed.",
+                "timestamp": "2025-09-07T10:18:00Z"
+            },
+            {
+                "messageId": "m4",
+                "senderId": "u2",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Thanks for the update! Let’s plan a new meeting time.",
+                "timestamp": "2025-09-07T10:20:00Z"
+            },
+            {
+                "messageId": "m5",
+                "senderId": "u2",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Would tomorrow at 3 PM work for you?",
+                "timestamp": "2025-09-07T10:25:00Z"
+            },
+            {
+                "messageId": "m6",
+                "senderId": "u1",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Yes, tomorrow at 3 PM works perfectly.",
+                "timestamp": "2025-09-07T10:27:00Z"
+            },
+            {
+                "messageId": "m7",
+                "senderId": "u2",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Great. Could you also share the wireframes before our meeting?",
+                "timestamp": "2025-09-07T10:30:00Z"
+            },
+            {
+                "messageId": "m8",
+                "senderId": "u1",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Sure, I’ll send them over by evening today.",
+                "timestamp": "2025-09-07T10:35:00Z"
+            },
+            {
+                "messageId": "m9",
+                "senderId": "u2",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Perfect, thanks!",
+                "timestamp": "2025-09-07T10:40:00Z"
+            },
+            {
+                "messageId": "m10",
+                "senderId": "u1",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Also, we’re planning to integrate a notification system. Do you want push + email alerts?",
+                "timestamp": "2025-09-07T11:00:00Z"
+            },
+            {
+                "messageId": "m11",
+                "senderId": "u2",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Yes, please. Push for real-time and email for summary updates would be great.",
+                "timestamp": "2025-09-07T11:05:00Z"
+            },
+            {
+                "messageId": "m12",
+                "senderId": "u1",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Got it 👍",
+                "timestamp": "2025-09-07T11:07:00Z"
+            },
+            {
+                "messageId": "m13",
+                "senderId": "u1",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "One more thing, should we support dark mode in this release or later?",
+                "timestamp": "2025-09-07T11:15:00Z"
+            },
+            {
+                "messageId": "m14",
+                "senderId": "u2",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Let’s keep it for a later release. For now, focus on the core features.",
+                "timestamp": "2025-09-07T11:18:00Z"
+            },
+            {
+                "messageId": "m15",
+                "senderId": "u1",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Understood, thanks for clarifying.",
+                "timestamp": "2025-09-07T11:20:00Z"
+            },
+            {
+                "messageId": "m16",
+                "senderId": "u2",
+                "avatar": "https://avatar.iran.liara.run/public/13",
+                "text": "Looking forward to seeing the progress in tomorrow’s meeting.",
+                "timestamp": "2025-09-07T1:30:00Z"
+            }
+        ]
+    }
+]

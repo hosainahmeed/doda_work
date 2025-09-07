@@ -9,3 +9,12 @@
 .app {
     @apply bg-[var(--primary-color)] text-[var(--text-color)];
 }
+
+.hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}

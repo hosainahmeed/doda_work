@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-// import { FaBars } from 'react-icons/fa';
-// import { FiChevronDown, FiUser, FiLogOut, FiSettings } from 'react-icons/fi';
-// import Notifications from '../Notifications/Notifications';
 import ProfileSidebar from "../ProfileSidebar/ProfileSidebar";
 import MainSidebar from "./MainSidebar";
 import Header from "./Header";
@@ -20,11 +17,6 @@ const Layout = () => {
     role: "Administrator",
   });
 
-  const isActive = (path) => {
-    return location.pathname === path
-      ? "bg-[#FFBA00] text-white"
-      : "text-gray-300 hover:bg-gray-700";
-  };
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
@@ -45,6 +37,10 @@ const Layout = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  // if (location.pathname === "/test") {
+  //   return <Outlet />;
+  // }
 
   return (
     <div className="flex h-screen bg-gray-100">
