@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Space, Tooltip } from 'antd'
 import UserImage from '../../../components/user/UserImage'
+import { FaCheck, FaEye } from 'react-icons/fa'
+import { CiCircleRemove } from 'react-icons/ci'
 
 export const signupRequestColumn = ({ onView, handleDelete, handleAccept }) => [
     {
@@ -39,22 +41,25 @@ export const signupRequestColumn = ({ onView, handleDelete, handleAccept }) => [
             <Space>
                 <Tooltip title="View">
                     <Button
+                        icon={<FaEye />}
                         onClick={() => onView(record)}
-                        shape="default"
+                        shape="circle"
                         style={{ backgroundColor: "#FFBA00", color: "white" }}
-                    >View</Button></Tooltip>
-                <Tooltip title="Delete">
+                    /></Tooltip>
+                <Tooltip title="Reject">
                     <Button
+                        icon={<CiCircleRemove />}
                         onClick={() => handleDelete(record?._id)}
-                        shape="default"
+                        shape="circle"
                         style={{ backgroundColor: "#FFBA00", color: "white" }}
-                    >Reject</Button></Tooltip>
-                <Tooltip title="Block">
+                    /></Tooltip>
+                <Tooltip title="Accept">
                     <Button
+                        icon={<FaCheck />}
                         onClick={() => handleAccept(record?._id)}
-                        shape="default"
+                        shape="circle"
                         style={{ backgroundColor: "#FFBA00", color: "white" }}
-                    >Accept</Button></Tooltip>
+                    /></Tooltip>
             </Space>
         ),
     },

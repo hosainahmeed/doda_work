@@ -1,13 +1,18 @@
 import React from "react";
-import { Button, Space, Tag, Tooltip } from "antd"
+import { Button, Popconfirm, Space, Tag, Tooltip } from "antd"
 import { dateFormate } from "../../../utils/optimizationFunction"
-import { FaEdit, FaEye, FaTrash, FaUserLock } from "react-icons/fa";
+import { FaEdit, FaTrash, FaUserLock } from "react-icons/fa";
+import cn from "../../../lib/cn";
+import UserImage from "../../../components/user/UserImage";
 
-export const adminTableColumn = () => [
+export const adminTableColumn = ({ handleBlock, handleDelete, handleEdit }) => [
     {
         title: "Name",
         dataIndex: "name",
         key: "name",
+        render: (_, record) => (
+            <UserImage user={{ name: record.name, avatar: record.avatar }} />
+        )
     },
     {
         title: 'Email',
@@ -35,10 +40,54 @@ export const adminTableColumn = () => [
         render: (_, record) => {
             return (
                 <Space>
-                    <Tooltip title="Block"><Button style={{ backgroundColor: "#FFBA00", color: "white" }} shape="circle" icon={<FaUserLock />} type="primary" onClick={() => handleBlock(record._id)} /></Tooltip>
-                    <Tooltip title="Delete"><Button style={{ backgroundColor: "#FFBA00", color: "white" }} shape="circle" icon={<FaTrash />} type="primary" onClick={() => handleDelete(record._id)} /></Tooltip>
-                    <Tooltip title="Edit"><Button style={{ backgroundColor: "#FFBA00", color: "white" }} shape="circle" icon={<FaEdit />} type="primary" onClick={() => handleEdit(record._id)} /></Tooltip>
-                    <Tooltip title="View"><Button style={{ backgroundColor: "#FFBA00", color: "white" }} shape="circle" icon={<FaEye />} type="primary" onClick={() => handleView(record._id)} /></Tooltip>
+                    <Tooltip title={record.isBlocked ? "Unblock" : "Block"}>
+                        <Button
+                            style={{
+                                backgroundColor: "#FFBA00",
+                                color: "white"
+                            }}
+                            className={cn("", record.isBlocked && "!bg-gray-500")}
+                            shape="circle"
+                            icon={<FaUserLock />}
+                            type="primary"
+                            onClick={() => handleBlock(record._id)}
+                        />
+                    </Tooltip>
+                    <Tooltip title="Delete">
+                        <Popconfirm
+                            title="Are you sure to delete this admin?"
+                            placement="topRight"
+                            okButtonProps={{
+                                style: {
+                                    backgroundColor: "red",
+                                    color: "white"
+                                }
+                            }}
+                            onConfirm={() => handleDelete(record._id)}
+                        >
+                            <Button
+                                style={{
+                                    backgroundColor: "red",
+                                    color: "white"
+                                }}
+                                shape="circle"
+                                icon={<FaTrash />}
+                                type="primary"
+                            />
+                        </Popconfirm>
+                    </Tooltip>
+                    <Tooltip
+                        title="Edit"><Button
+                            style={{
+                                backgroundColor: "#F57C00",
+                                color: "white"
+
+                            }}
+                            shape="circle"
+                            icon={<FaEdit />}
+                            type="primary"
+                            onClick={() => handleEdit(record)}
+                        /></Tooltip>
                 </Space>
             )
         }

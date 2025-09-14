@@ -82,7 +82,7 @@ const Notifications = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={toggleNotifications}
-        className="p-2 rounded-full text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FFBA00] relative notification-trigger"
+        className="p-2 rounded-full text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--secondary-color)] relative notification-trigger"
       >
         <FiBell className="h-6 w-6" />
         {unreadCount > 0 && (
@@ -99,7 +99,7 @@ const Notifications = () => {
             {notifications.some(n => !n.read) && (
               <button
                 onClick={markAllAsRead}
-                className="text-sm text-[#FFBA00] hover:text-yellow-600"
+                className="text-sm text-[var(--secondary-color)] hover:text-yellow-600"
               >
                 Mark all as read
               </button>
@@ -140,14 +140,14 @@ const Notifications = () => {
             )}
           </div>
           
-          <div className="p-3 border-t border-gray-200 text-center">
+          {/* <div className="p-3 border-t border-gray-200 text-center">
             <a
               href="#"
-              className="text-sm font-medium text-[#FFBA00] hover:text-yellow-600"
+              className="text-sm font-medium text-[var(--secondary-color)] hover:text-yellow-600"
             >
               View all notifications
             </a>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

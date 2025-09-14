@@ -33,6 +33,7 @@ function CategoryForm({ open, hide, title, onFinish, record }) {
             onOk={() => hide()}
             onCancel={() => hide()}
             footer={null}
+            centered
         >
             <Form
                 layout="vertical"

@@ -1,12 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { PageLayout, PageContent } from '../../components/PageLayout'
 import { Button, Input, Modal, Table } from 'antd'
 import { adminTableColumn } from './admin-component/AdminTableColumn'
 import { FaPlus } from 'react-icons/fa'
 import AdminForm from './admin-component/AdminForm'
-import { perfectImageReturn } from '../../utils/optimizationFunction'
-import ImageUploader from '../../components/common/ImageUploader'
-
 function AdminPage() {
     const data = [
         {
@@ -14,6 +11,7 @@ function AdminPage() {
             name: "Hosain Ahmed",
             email: "hosainahmed534745@gmail.com",
             createdAt: "2023-01-01",
+            avatar: 'https://avatar.iran.liara.run/public/15',
             isBlocked: false,
         },
         {
@@ -21,6 +19,7 @@ function AdminPage() {
             name: "Tanjim",
             email: "tanjim@gmail.com",
             createdAt: "2023-01-01",
+            avatar: 'https://avatar.iran.liara.run/public/15',
             isBlocked: true,
         },
     ]
@@ -63,13 +62,43 @@ export default AdminPage
 
 
 const AdminTable = ({ data }) => {
+    const [openEdit, setOpenEdit] = useState(false)
+    const [editId, setEditId] = useState(null)
+    const hideEdit = useCallback(() => {
+        setOpenEdit(false)
+    }, [])
+    const handleBlock = useCallback((id) => {
+        console.log(id)
+    }, [])
+    const handleDelete = useCallback((id) => {
+        alert("Delete")
+        console.log(id)
+    }, [])
+    const handleEdit = useCallback((record) => {
+        setEditId(record)
+        setOpenEdit(true)
+    }, [])
+
     return (
-        <Table
-            rowKey="_id"
-            bordered
-            columns={adminTableColumn()}
-            dataSource={data}
-            pagination={false}
-        />
+        <>
+            <Table
+                rowKey="_id"
+                bordered
+                columns={adminTableColumn({ handleBlock, handleDelete, handleEdit })}
+                dataSource={data}
+                pagination={false}
+            />
+            <Modal
+                title="Edit Admin"
+                open={openEdit}
+                centered
+                onCancel={hideEdit}
+                footer={null}
+                closeIcon={false}
+            >
+                <AdminForm open={openEdit} hide={hideEdit} data={editId} />
+            </Modal>
+        </>
     )
 }
+

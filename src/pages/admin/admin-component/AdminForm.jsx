@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
 import ImageUploader from "../../../components/common/ImageUploader";
+import { useEffect } from "react";
 
-function AdminForm() {
-    const [image, setImage] = useState(null)
+function AdminForm({ data, hide }) {
+    console.log(data)
+    const [image, setImage] = useState(data?.avatar || null)
     const [form] = Form.useForm();
+
+    useEffect(() => {
+        if (data) {
+            form.setFieldsValue(data);
+        }
+    }, [data, form]);
 
     const onFinish = (values) => {
         const finalData = {
             ...values,
-            image: image,
+            avatar: image,
         }
         console.log(finalData)
     };
@@ -36,7 +44,7 @@ function AdminForm() {
                     name="name"
                     rules={[{ required: true, message: "Please input name!" }]}
                 >
-                    <Input placeholder="Enter full name" />
+                    <Input size="large" placeholder="Enter full name" />
                 </Form.Item>
 
                 {/* Email */}
@@ -49,20 +57,24 @@ function AdminForm() {
                 </Form.Item>
 
                 {/* Password - only in Create mode */}
-                <Form.Item
+                {data ? null : <Form.Item
                     label="Password"
                     name="password"
                     rules={[{ required: true, message: "Please input password!" }]}
                 >
-                    <Input.Password placeholder="Enter password" />
-                </Form.Item>
+                    <Input.Password size="large" placeholder="Enter password" />
+                </Form.Item>}
 
                 {/* Submit */}
-                <Form.Item>
-                    <Button style={{ backgroundColor: "var(--primary-color)", color: "white" }} htmlType="submit" className="w-full">
-                        Create Admin
+                <div className="flex gap-2 items-center">
+                    <Button size="large" style={{ backgroundColor: "var(--primary-color)", color: "white", width: "100%" }} onClick={() => {
+                        form.resetFields()
+                        hide()
+                    }}>Cancel</Button>
+                    <Button size="large" style={{ backgroundColor: "var(--primary-color)", color: "white", width: "100%" }} htmlType="submit">
+                        {data ? "Update Admin" : "Create Admin"}
                     </Button>
-                </Form.Item>
+                </div>
             </Form>
         </>
     );

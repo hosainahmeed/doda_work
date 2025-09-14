@@ -1,0 +1,9 @@
+.test {
+    width: 500px;
+    height: 300px;
+    background-color: red;
+    clip-path: path("M211.271 21.448C212.382 22.8307 213.845 23.5996 215.365 23.5996H350.4C352.288 23.5996 354.066 24.785 355.199 26.7991L358.8 33.1985C359.579 34.5834 360 36.2679 360 37.9991V232C360 236.418 357.314 240 354 240H31.4026C29.5692 240 27.8364 238.882 26.6983 236.966L1.29572 194.182C0.456576 192.769 0 191.019 0 189.217V8C0 3.58173 2.68629 0 6 0H191.671C193.191 0 194.654 0.768956 195.765 2.15157L211.271 21.448Z");
+    background-image: url("https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+    background-size: cover;
+    background-position: center;
+}

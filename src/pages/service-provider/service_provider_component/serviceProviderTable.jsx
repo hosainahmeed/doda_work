@@ -26,6 +26,8 @@ function ServiceProviderTable() {
       contact_person: "John Doe",
       avatar: "https://avatar.iran.liara.run/public/13",
       website_link: "https://www.google.com",
+      certificate: "https://m.media-amazon.com/images/I/719S52YjtmL.jpg",
+      license: "https://d1hv7ee95zft1i.cloudfront.net/custom/blog-post-photo/gallery/philippine-drivers-license-5fc9f1eb3b9f9.jpg",
     },
     {
       request_id: "#121212",
@@ -43,6 +45,8 @@ function ServiceProviderTable() {
       contact_person: "John Doe",
       avatar: "https://avatar.iran.liara.run/public/20",
       website_link: "https://www.google.com",
+      certificate: "https://m.media-amazon.com/images/I/719S52YjtmL.jpg",
+      license: "https://d1hv7ee95zft1i.cloudfront.net/custom/blog-post-photo/gallery/philippine-drivers-license-5fc9f1eb3b9f9.jpg",
     },
   ];
 
