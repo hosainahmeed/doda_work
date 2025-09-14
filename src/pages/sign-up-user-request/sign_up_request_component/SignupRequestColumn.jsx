@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Space, Tooltip } from 'antd'
+import { Button, Popconfirm, Space, Tooltip } from 'antd'
 import UserImage from '../../../components/user/UserImage'
 import { FaCheck, FaEye } from 'react-icons/fa'
 import { CiCircleRemove } from 'react-icons/ci'
@@ -47,20 +47,24 @@ export const signupRequestColumn = ({ onView, handleDelete, handleAccept }) => [
                         style={{ backgroundColor: "#FFBA00", color: "white" }}
                     /></Tooltip>
                 <Tooltip title="Reject">
-                    <Button
-                        icon={<CiCircleRemove />}
-                        onClick={() => handleDelete(record?._id)}
-                        shape="circle"
-                        style={{ backgroundColor: "#FFBA00", color: "white" }}
-                    /></Tooltip>
+                    <Popconfirm title="Are you sure to reject this request?" placement="topRight" okButtonProps={{ style: { backgroundColor: "#FFBA00", color: "white" } }} onConfirm={() => handleAccept(record?._id)}>
+                        <Button
+                            icon={<CiCircleRemove />}
+                            shape="circle"
+                            style={{ backgroundColor: "#FFBA00", color: "white" }}
+                        />
+                    </Popconfirm>
+                </Tooltip>
                 <Tooltip title="Accept">
-                    <Button
-                        icon={<FaCheck />}
-                        onClick={() => handleAccept(record?._id)}
-                        shape="circle"
-                        style={{ backgroundColor: "#FFBA00", color: "white" }}
-                    /></Tooltip>
-            </Space>
+                    <Popconfirm title="Are you sure to accept this request?" placement="topRight" okButtonProps={{ style: { backgroundColor: "#FFBA00", color: "white" } }} onConfirm={() => handleAccept(record?._id)}>
+                        <Button
+                            icon={<FaCheck />}
+                            shape="circle"
+                            style={{ backgroundColor: "#FFBA00", color: "white" }}
+                        />
+                    </Popconfirm>
+                </Tooltip>
+            </Space >
         ),
     },
 ]

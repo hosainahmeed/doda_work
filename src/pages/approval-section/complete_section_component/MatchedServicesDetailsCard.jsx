@@ -91,8 +91,8 @@ const MatchedServicesDetailsCard = ({ record, handleCancel, loading = false }) =
 
 
           {/* Actions */}
-          {record?.status !== 'Rejected' && <Divider />}
-          {record?.status !== 'Rejected' && <div className="flex gap-3">
+          {record?.status === 'Pending' && <Divider />}
+          {record?.status === 'Pending' && <div className="flex gap-3">
             <Button
               onClick={() => handleMatch()}
               style={{ backgroundColor: "var(--primary-color)", color: "#fff" }}

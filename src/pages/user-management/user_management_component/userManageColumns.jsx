@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Space } from "antd";
+import { Button, Popconfirm, Space } from "antd";
 import { FaEye, FaRegCheckCircle } from "react-icons/fa";
 import UserImage from "../../../components/user/UserImage";
 
@@ -40,11 +40,16 @@ export const userManageColumns = (onView, handleBlock) => [
           shape="circle"
           icon={<FaEye />}
         />
-        <Button
-          onClick={() => handleBlock(record)}
-          shape="circle"
-          icon={<FaRegCheckCircle />}
-        />
+        <Popconfirm
+          title={`Are you sure to block ${record.user_profile.name}?`}
+          placement="topRight"
+          okButtonProps={{ style: { backgroundColor: "#FFBA00", color: "white" } }}
+          onConfirm={() => handleBlock(record)}>
+          <Button
+            shape="circle"
+            icon={<FaRegCheckCircle />}
+          />
+        </Popconfirm>
       </Space>
     ),
   },

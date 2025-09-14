@@ -40,7 +40,7 @@ function SignUpUserRequest() {
   }, [])
 
   return (
-    <PageLayout title="Sign Up Provider Request">
+    <PageLayout title="New Providers Awaiting Approval">
       <PageContent>
         <SignupRequestTable adminData={adminData} handleDelete={handleDelete} handleAccept={handleAccept} handleView={handleView} />
       </PageContent>

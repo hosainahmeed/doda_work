@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Space } from "antd";
+import { Button, Popconfirm, Space } from "antd";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import UserImage from "../../../components/user/UserImage";
 import { GrLinkNext } from "react-icons/gr";
@@ -20,7 +20,13 @@ export const subCategoryManageColumns = (onEdit, onDelete) => [
     render: (_, record) => (
       <Space>
         <Button onClick={() => onEdit(record)} shape="circle" icon={<FaEdit />} />
-        <Button onClick={() => onDelete(record)} shape="circle" icon={<FaTrash />} />
+        <Popconfirm
+          title={`Are you sure to delete ${record.name}?`}
+          placement="topRight"
+          okButtonProps={{ style: { backgroundColor: "#FFBA00", color: "white" } }}
+          onConfirm={() => onDelete(record)}>
+          <Button shape="circle" icon={<FaTrash />} />
+        </Popconfirm>
       </Space>
     ),
   },

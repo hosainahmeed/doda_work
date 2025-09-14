@@ -41,17 +41,18 @@ export const adminTableColumn = ({ handleBlock, handleDelete, handleEdit }) => [
             return (
                 <Space>
                     <Tooltip title={record.isBlocked ? "Unblock" : "Block"}>
-                        <Button
-                            style={{
-                                backgroundColor: "#FFBA00",
-                                color: "white"
-                            }}
-                            className={cn("", record.isBlocked && "!bg-gray-500")}
-                            shape="circle"
-                            icon={<FaUserLock />}
-                            type="primary"
-                            onClick={() => handleBlock(record._id)}
-                        />
+                        <Popconfirm title={`Are you sure to ${record.isBlocked ? "unblock" : "block"} this admin?`} placement="topRight" okButtonProps={{ style: { backgroundColor: "#FFBA00", color: "white" } }} onConfirm={() => handleBlock(record._id)}>
+                            <Button
+                                style={{
+                                    backgroundColor: "#FFBA00",
+                                    color: "white"
+                                }}
+                                className={cn("", record.isBlocked && "!bg-gray-500")}
+                                shape="circle"
+                                icon={<FaUserLock />}
+                                type="primary"
+                            />
+                        </Popconfirm>
                     </Tooltip>
                     <Tooltip title="Delete">
                         <Popconfirm

@@ -37,7 +37,8 @@ export const serviceProviderColumns = (onView) => [
       <Space>
         <Button onClick={() => onView(record)} shape="circle" icon={<FaEye />} />
         <Button onClick={() => alert("Block function called")} shape="circle" icon={<FaRegCheckCircle />} /> {/* MdBlock */}
-        <Popconfirm title="Which provider you want to contact?"
+        <Popconfirm
+          icon={null}
           okText="Email"
           cancelText="Chat"
           onConfirm={() => {
